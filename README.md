@@ -1,6 +1,6 @@
 # HelloPhoenixApi
 
-Prerequesites:
+Prerequisites:
   * Install erlang `sudo apt-get install elixir`
   * Install Hex Package manager `mix local.hex`
   * Install Phoenix application generator `mix archive.install hex phx_new`
