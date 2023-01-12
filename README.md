@@ -5,7 +5,7 @@ Prerequisites:
   * Install Hex Package manager `mix local.hex`
   * Install Phoenix application generator `mix archive.install hex phx_new`
 
-To start your Phoenix app:
+To start your Phoenix app (Run inside application directory):
   * Install dependencies with `mix deps.get`
   * Start Phoenix endpoint with `mix phx.server`
 
