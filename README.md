@@ -6,10 +6,12 @@ Prerequisites:
   * Install Phoenix application generator `mix archive.install hex phx_new`
 
 To start your Phoenix app:
-
   * Install dependencies with `mix deps.get`
-  * Clean dependencies and update lock file with `mix deps.clean --unused --unlock`
   * Start Phoenix endpoint with `mix phx.server`
+
+If you need to change or remove dependencies
+  * Clean dependencies and update lock file with `mix deps.clean --unused --unlock`
+
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
