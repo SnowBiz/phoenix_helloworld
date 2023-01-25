@@ -1,8 +1,7 @@
 # https://hub.docker.com/_/elixir/
 FROM elixir:latest
 #FROM ubuntu:22.10
-RUN apt-get update && apt-get install -y \
-    elixir && \
+RUN apt-get update && \
     # By using `--force`, we don’t need to type “Y” to confirm the installation.
     mix local.hex --force
 
