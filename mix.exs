@@ -38,7 +38,6 @@ defmodule HelloPhoenixApi.Mixfile do
      {:plug_cowboy, "~> 2.0"},
      {:plug, "~> 1.7"},
      {:jason, "~> 1.0"},
-     {:rebar3, ">= 0.0.0"},
      ]
   end
 end
