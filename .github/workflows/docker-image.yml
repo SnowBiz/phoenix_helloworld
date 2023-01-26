@@ -33,6 +33,7 @@ jobs:
         
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+    - uses: actions/checkout@v3
     - name: Update Chart Version
       uses: jacobtomlinson/gha-find-replace@v2
       if: success() && steps.docker-build.outcome == 'success'
@@ -41,7 +42,6 @@ jobs:
         replace: "appVersion: '${{ github.sha }}'"
         include: "kubernetes/helm/Chart.yaml" # Will match all README.md files in any nested directory
         regex: true
-    - uses: actions/checkout@v3
     - name: Commit Chart Version Update
       uses: EndBug/add-and-commit@v9 # You can change this to use a specific version.
       with:
