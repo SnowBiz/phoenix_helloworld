@@ -52,3 +52,5 @@ jobs:
         cwd: '.'
         default_author: github_actor
         pathspec_error_handling: ignore
+        # Default: 'Commit from GitHub Actions (name of the workflow)'
+        message: '[skip actions] Commit from GitHub Actions. Updating Helm Chart AppVersion.'
