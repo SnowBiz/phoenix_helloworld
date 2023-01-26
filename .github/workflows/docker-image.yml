@@ -49,10 +49,4 @@ jobs:
         author_name: GitHub Actions Workflow
         cwd: '.'
         default_author: github_actor
-        # If this input is set, the action will push the commit to a new branch with this name.
-        # Default: ''
-        new_branch: custom-new-branch
         pathspec_error_handling: ignore
-        # Arguments for the git pull command. By default, the action does not pull.
-        # Default: ''
-        pull: '--rebase --autostash ...'
