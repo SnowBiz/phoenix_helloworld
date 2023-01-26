@@ -8,7 +8,7 @@ image:
   repository: 799671149195.dkr.ecr.us-east-1.amazonaws.com/elixirdemo
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "latest"
+  #tag: "latest"
 
 imagePullSecrets: []
 fullname: "elixirdemo"
