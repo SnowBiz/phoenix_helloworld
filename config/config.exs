@@ -10,9 +10,7 @@ config :hello_phoenix_api, HelloPhoenixApi.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "PFMWIN/92YL9/cn5jeq1vlxinow8nus9DqxfC+1BdgAyCtFY6i6HZJM9dcA+x7ti",
   render_errors: [view: HelloPhoenixApi.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: HelloPhoenixApi.PubSub,
-           adapter: Phoenix.PubSub.PG2]
-
+  pubsub_server: HelloPhoenixApi.PubSub
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",

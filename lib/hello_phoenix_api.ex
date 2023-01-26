@@ -12,6 +12,7 @@ defmodule HelloPhoenixApi do
       supervisor(HelloPhoenixApi.Endpoint, []),
       # Start your own worker by calling: HelloPhoenixApi.Worker.start_link(arg1, arg2, arg3)
       # worker(HelloPhoenixApi.Worker, [arg1, arg2, arg3]),
+      {Phoenix.PubSub, [name: HelloPhoenixApi.PubSub, adapter: Phoenix.PubSub.PG2]}
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html
