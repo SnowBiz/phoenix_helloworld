@@ -42,11 +42,16 @@ jobs:
         include: "kubernetes/helm/Chart.yaml" # Will match all README.md files in any nested directory
         regex: true
     - name: Commit Chart Version Update
-      run: |
-        cd lib
-        git config --global user.email "automated@github.com"
-        git config --global user.name "githubactions"
-        git config --global credential.helper cache
-        git add .
-        git commit -m "$(date): Incrementing Helm Chart Version"
-        git push
+      uses: EndBug/add-and-commit@v9 # You can change this to use a specific version.
+      with:
+        add: '.'
+        author_name: GitHub Actions Workflow
+        cwd: '.'
+        default_author: github_actor
+        # If this input is set, the action will push the commit to a new branch with this name.
+        # Default: ''
+        new_branch: custom-new-branch
+        pathspec_error_handling: ignore
+        # Arguments for the git pull command. By default, the action does not pull.
+        # Default: ''
+        pull: '--rebase --autostash ...'
