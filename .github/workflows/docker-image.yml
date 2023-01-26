@@ -24,14 +24,29 @@ jobs:
       id: login-ecr
       uses: aws-actions/amazon-ecr-login@v1
     - name: Build, tag, and push image to Amazon ECR
+      id: docker-build
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         ECR_REPOSITORY: elixirdemo
-        IMAGE_TAG: latest
+        IMAGE_TAG: ${{ github.sha }}
       run: |
         
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-    - name: Test Git
+    - name: Update Chart Version
+      uses: jacobtomlinson/gha-find-replace@v2
+      if: success() && steps.docker-build.outcome == 'success'
+      with:
+        find: "appVersion:.*"
+        replace: "appVersion: '${{ github.sha }}'"
+        include: "kubernetes/helm/Chart.yaml" # Will match all README.md files in any nested directory
+        regex: true
+    - name: Commit Chart Version Update
       run: |
-        git status
+        cd lib
+        git config --global user.email "automated@github.com"
+        git config --global user.name "githubactions"
+        git config --global credential.helper cache
+        git add .
+        git commit -m "$(date): Incrementing Helm Chart Version"
+        git push
