@@ -36,13 +36,13 @@ spec:
           ports:
             - name: http
               containerPort: 4000
-              protocol: TCP
+              protocol: HTTP
           livenessProbe:
             httpGet:
               path: /
               port: http
-            periodSeconds: 5
-            initialDelaySeconds: 10
+            periodSeconds: 10
+            initialDelaySeconds: 5
           readinessProbe:
             httpGet:
               path: /
